@@ -22,6 +22,16 @@ public class FadeControl : MonoBehaviour
         originalColor = fadeObject.color;
     }
 
+    public void FadeIn()
+    {
+        StartFade(originalColor.a); // Fade to opaque
+    }
+
+    public void FadeOut()
+    {
+        StartFade(0f); // Fade to transparent
+    }
+
     private void StartFade (float targetAlpha)
     {
         if (coroutine != null)
@@ -32,7 +42,7 @@ public class FadeControl : MonoBehaviour
     }
     
 
-    private IEnumerator FadeRoutine(float targetAlpha)
+    private System.Collections.IEnumerator FadeRoutine(float targetAlpha)
     {
         if (coroutine != null)
         {
