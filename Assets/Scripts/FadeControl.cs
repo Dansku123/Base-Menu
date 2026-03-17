@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
+
 public class FadeControl : MonoBehaviour
 {
 
@@ -44,23 +44,20 @@ public class FadeControl : MonoBehaviour
 
     private System.Collections.IEnumerator FadeRoutine(float targetAlpha)
     {
-        if (coroutine != null)
+        float time = 0f;
+        float startAlpha = fadeObject.color.a;
+
+        while (time < fadeDuration)
         {
-            float time = 0f;
-            float startAlpha = fadeObject.color.a;
+            time += Time.deltaTime;
+            Color colorChanged = fadeObject.color;
+            colorChanged.a = Mathf.Lerp(startAlpha, targetAlpha, time / fadeDuration);
+            fadeObject.color = colorChanged;
+            yield return null;
+        } 
 
-            while (time < fadeDuration)
-            {
-                time += Time.deltaTime;
-                Color colorChanged = fadeObject.color;
-                colorChanged.a = Mathf.Lerp(startAlpha, targetAlpha, time / fadeDuration);
-                fadeObject.color = colorChanged;
-                yield return null;
-            } 
-
-            Color finalColor = fadeObject.color;
-            finalColor.a = targetAlpha;
-            fadeObject.color = finalColor;
-        }
+        Color finalColor = fadeObject.color;
+        finalColor.a = targetAlpha;
+        fadeObject.color = finalColor;
     }
 }

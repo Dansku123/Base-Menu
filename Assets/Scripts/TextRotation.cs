@@ -1,4 +1,5 @@
 using UnityEngine;
+using Selector.cs;
 
 public class TextRotation : MonoBehaviour
 {
@@ -9,6 +10,14 @@ public class TextRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (selectedColor = true)
+        {
+            RotateText();
+        }
+        else
+        {
+            gameObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
         float tilt = Mathf.Sin(Time.time * speed) * angle;
         gameObject.transform.localRotation = Quaternion.Euler(0, 0, tilt);
     }

@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 109464424}
   - component: {fileID: 109464423}
+  - component: {fileID: 109464425}
   m_Layer: 0
   m_Name: MainMenuManager
   m_TagString: Untagged
@@ -164,6 +165,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &109464425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109464422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8370a4fae7166be4aa9adb2a35351bc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Selector
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 0, g: 0, b: 1, a: 1}
+  items:
+  - {fileID: 1470622680}
+  - {fileID: 1531930059}
+  - {fileID: 1289278180}
 --- !u!1 &311722756
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,7 +537,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &674867840
 RectTransform:
   m_ObjectHideFlags: 0
@@ -588,7 +607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 887e1499bb12b30488a596c99816b683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FadeControl
-  fadeDuration: 1
+  fadeDuration: 2
 --- !u!1 &1289278178
 GameObject:
   m_ObjectHideFlags: 0
