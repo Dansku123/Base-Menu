@@ -183,6 +183,7 @@ MonoBehaviour:
   - {fileID: 1470622680}
   - {fileID: 1531930059}
   - {fileID: 1289278180}
+  fade: {fileID: 674867843}
 --- !u!1 &311722756
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,6 +621,7 @@ GameObject:
   - component: {fileID: 1289278181}
   - component: {fileID: 1289278182}
   - component: {fileID: 1289278180}
+  - component: {fileID: 1289278183}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -760,6 +762,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TextRotation
   speed: 2
   angle: 10
+--- !u!114 &1289278183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289278178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db3484dbb4072414c8e6f48f9eb8291d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HoverSelect
+  index: 2
+  selector: {fileID: 0}
 --- !u!1 &1470622678
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,6 +788,7 @@ GameObject:
   - component: {fileID: 1470622681}
   - component: {fileID: 1470622682}
   - component: {fileID: 1470622680}
+  - component: {fileID: 1470622683}
   m_Layer: 5
   m_Name: Start
   m_TagString: Untagged
@@ -912,6 +929,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TextRotation
   speed: 2
   angle: 10
+--- !u!114 &1470622683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470622678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db3484dbb4072414c8e6f48f9eb8291d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HoverSelect
+  index: 0
+  selector: {fileID: 0}
 --- !u!1 &1531930057
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,6 +955,7 @@ GameObject:
   - component: {fileID: 1531930060}
   - component: {fileID: 1531930061}
   - component: {fileID: 1531930059}
+  - component: {fileID: 1531930062}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -1064,6 +1096,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TextRotation
   speed: 2
   angle: 10
+--- !u!114 &1531930062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531930057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db3484dbb4072414c8e6f48f9eb8291d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HoverSelect
+  index: 1
+  selector: {fileID: 0}
 --- !u!1 &1713116053
 GameObject:
   m_ObjectHideFlags: 0

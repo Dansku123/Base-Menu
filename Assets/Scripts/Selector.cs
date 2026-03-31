@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class Selector : MonoBehaviour
 {
@@ -9,10 +9,11 @@ public class Selector : MonoBehaviour
     public Color selectedColor = Color.black;
     public TMP_Text [] items;
     private int index = 0;
+    public FadeControl fade;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        changeColors();
+        ChangeColors();
     }
 
     // Update is called once per frame
@@ -21,16 +22,47 @@ public class Selector : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             index = (index + 1) % items.Length;
-            changeColors();
+            ChangeColors();
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             index = (index - 1 + items.Length) % items.Length;
-            changeColors();
+            ChangeColors();
+        }
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            ActivateItem(index);
         }
     }
 
-    void changeColors()
+public void ActivateItem(int i)
+    {
+        Debug.Log("Activated item: " + items[i].text);
+
+        if (items[i].text == "Start")
+        {
+            StartCoroutine(ChangeScene("Games"));
+        }
+        else if (items[i].text == "Settings")
+        {
+            StartCoroutine(ChangeScene("Settings"));
+        }
+        else if (items[i].text == "Exit")
+        {
+            Application.Quit();
+        }
+    }
+
+    private System.Collections.IEnumerator ChangeScene(string sceneName)
+    {
+        {
+            fade.FadeIn();
+            yield return new WaitForSeconds(fade.fadeDuration);
+
+            SceneManager.LoadScene(sceneName);
+        }
+    }
+    void ChangeColors()
     {
         for (int i = 0; i < items.Length; i++)
         {

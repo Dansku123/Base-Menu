@@ -1,23 +1,42 @@
 using UnityEngine;
-using Selector.cs;
+using TMPro;
 
 public class TextRotation : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    
     public float speed = 2f;
     public float angle = 10f;
-    // Update is called once per frame
+    private Selector selector;
+    private TMP_Text thisText;
+    private Color previousColor;
+
+    void Start()
+    {
+        selector = FindObjectOfType<Selector>();
+        thisText = GetComponent<TMP_Text>();
+        previousColor = selector.selectedColor;
+    }
+
     void Update()
     {
-        if (selectedColor = true)
+        // Check if selected color changed
+        if (thisText.color == selector.selectedColor)
         {
+            if (previousColor != selector.selectedColor)
+            {
+                // Reset when selection changes
+                previousColor = selector.selectedColor;
+                gameObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            }
             RotateText();
         }
         else
         {
             gameObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
+    }
+
+    void RotateText()
+    {
         float tilt = Mathf.Sin(Time.time * speed) * angle;
         gameObject.transform.localRotation = Quaternion.Euler(0, 0, tilt);
     }
