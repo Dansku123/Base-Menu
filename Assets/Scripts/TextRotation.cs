@@ -8,12 +8,14 @@ public class TextRotation : MonoBehaviour
     private Selector selector;
     private TMP_Text thisText;
     private Color previousColor;
+    private float startTime;
 
     void Start()
     {
         selector = FindObjectOfType<Selector>();
         thisText = GetComponent<TMP_Text>();
         previousColor = selector.selectedColor;
+        startTime = Time.time;
     }
 
     void Update()
@@ -25,6 +27,7 @@ public class TextRotation : MonoBehaviour
             {
                 // Reset when selection changes
                 previousColor = selector.selectedColor;
+                startTime = Time.time;
                 gameObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
             RotateText();
@@ -37,7 +40,7 @@ public class TextRotation : MonoBehaviour
 
     void RotateText()
     {
-        float tilt = Mathf.Sin(Time.time * speed) * angle;
+        float tilt = Mathf.Sin((Time.time - startTime) * speed) * angle;
         gameObject.transform.localRotation = Quaternion.Euler(0, 0, tilt);
     }
 }

@@ -49,8 +49,17 @@ public void ActivateItem(int i)
         }
         else if (items[i].text == "Exit")
         {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
             Application.Quit();
         }
+    }
+
+    public void SetIndex(int i)
+    {
+        index = i;
+        ChangeColors();
     }
 
     private System.Collections.IEnumerator ChangeScene(string sceneName)

@@ -8,11 +8,10 @@ IPointerClickHandler
     public Selector selector;
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Entered");
+        selector.SetIndex(index);
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("Clicked");
         selector.ActivateItem(index);
     }
 }
