@@ -47,13 +47,6 @@ public void ActivateItem(int i)
         {
             StartCoroutine(ChangeScene("Settings"));
         }
-        else if (items[i].text == "Exit")
-        {
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-#endif
-            Application.Quit();
-        }
     }
 
     public void SetIndex(int i)
