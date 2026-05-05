@@ -10,8 +10,15 @@ public class LevelScroll : MonoBehaviour
  public Image leftLevel;
  
  public Sprite[] levelImages;
-    public int currentIndex;
+ public int currentIndex;
 
+ public FadeControl fade;
+
+ void Start()
+    {
+        fade.gameObject.SetActive(true);
+        fade.FadeOut();
+    }
     void Update()
     {
         selectedLevel.sprite = levelImages[currentIndex];
@@ -28,9 +35,22 @@ public class LevelScroll : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+                    
         {
+            StartCoroutine(ChangeScene("Game" + currentIndex));
             Debug.Log("Selected level: " + currentIndex);
             SceneManager.LoadScene("Game" + currentIndex);
+            fade.FadeOut();
+        }
+    }
+
+    private System.Collections.IEnumerator ChangeScene(string sceneName)
+    {
+        {
+            fade.FadeIn();
+            yield return new WaitForSeconds(fade.fadeDuration);
+
+            SceneManager.LoadScene(sceneName);
         }
     }
 }
